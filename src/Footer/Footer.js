@@ -1,6 +1,6 @@
 import React from 'react';
 
-function App() {
+function Footer() {
   return (
     <div className="Footer">
         Powered by <a href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a>
@@ -8,4 +8,4 @@ function App() {
   );
 }
 
-export default App;
+export default Footer;
