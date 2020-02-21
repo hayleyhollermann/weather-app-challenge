@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-router.get('/', (req, res) => {
-    console.log('hitting route');
+router.get('/:location', (req, res) => {
+    console.log('hitting route for:', req.params);
     let key = process.env.WEATHER_API_KEY;
     let city = 55305;
     axios({

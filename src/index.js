@@ -1,6 +1,47 @@
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import logger from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
+import { takeEvery, put } from 'redux-saga/effects'; 
+import axios from 'axios';
 import App from './components/App/App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+const forecast = (state = [], action) => {
+  if(action.type === 'SET_FORECAST'){
+      return action.payload
+  } else {
+      return state;
+  }
+}
+
+function* rootSaga() {
+  yield takeEvery('GET_FORECAST', getForecast);
+}
+
+function* getForecast(action) {
+  try {
+      console.log('in getForecast', action.payload);
+      const response = yield axios.get(`http://localhost:5000/weather/${action.payload.location}`);
+      yield put ({ type: 'SET_FORECAST', payload: response.data})
+  } catch(error) {
+      console.log('error fetching weather', error)
+  }
+}
+
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(
+  combineReducers({ 
+    forecast
+  }),
+  applyMiddleware(sagaMiddleware, logger)
+);
+
+sagaMiddleware.run(rootSaga);
+
+
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));

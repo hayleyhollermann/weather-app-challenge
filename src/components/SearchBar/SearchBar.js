@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Input, Button} from '@material-ui/core';
+
+const mapStateToProps = reduxState => ({
+  reduxState,
+});
 
 class SearchBar extends Component {
 
@@ -13,8 +18,9 @@ class SearchBar extends Component {
 
   getWeather = () => {
     console.log('getting weather for', this.state.location);
+    this.props.dispatch({ type: 'GET_FORECAST', payload: this.state })
   }
-    
+
   render() {
     return (
       <div className="SearchBar">
@@ -28,4 +34,4 @@ class SearchBar extends Component {
 
 }
 
-export default SearchBar;
+export default (connect(mapStateToProps)(SearchBar));
