@@ -16,8 +16,8 @@ class SearchBar extends Component {
     this.setState({location: event.target.value})
   }
 
+  // Sends input to getForecast Saga in index.js
   getWeather = () => {
-    console.log('getting weather for', this.state.location);
     this.props.dispatch({ type: 'GET_FORECAST', payload: this.state })
   }
 

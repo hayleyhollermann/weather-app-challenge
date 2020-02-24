@@ -9,7 +9,7 @@ import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 import App from './components/App/App';
 
-
+// stores results from server
 const forecast = (state = [], action) => {
   if(action.type === 'SET_FORECAST'){
       return action.payload
@@ -22,9 +22,9 @@ function* rootSaga() {
   yield takeEvery('GET_FORECAST', getForecast);
 }
 
+// sends location input to server
 function* getForecast(action) {
   try {
-      console.log('in getForecast', action.payload);
       const response = yield axios.get(`http://localhost:5000/weather/${action.payload.location}`);
       yield put ({ type: 'SET_FORECAST', payload: response.data})
   } catch(error) {

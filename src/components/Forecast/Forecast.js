@@ -13,6 +13,7 @@ class Forecast extends Component {
     render() {
         return (
             <div className="Forecast">
+                {/* checks to ensure results have returned from server */}
                 {this.props.forecast.location ?
                     <div className="show-forecast">
                         <h1>{this.props.forecast.location.name}, {this.props.forecast.location.region}</h1>
@@ -33,7 +34,6 @@ class Forecast extends Component {
                     : 
                     <div>
                         <h3>Search for your city above!</h3>
-                        
                     </div>
                 }
             </div>

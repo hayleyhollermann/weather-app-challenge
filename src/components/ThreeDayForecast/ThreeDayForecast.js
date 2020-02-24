@@ -10,6 +10,7 @@ class ThreeDayForecast extends Component {
     render() {
         return (
             <ul className="ThreeDayForecast">
+                {/* maps through results to display next 3 days forecast */}
                 {this.props.threeDays.map((forecast) => 
                     <li className="table-row">
                         <div className="col col-1">
