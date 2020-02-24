@@ -27,7 +27,6 @@ class SearchBar extends Component {
           <h1>Find Your City!</h1>
           <Input onChange={this.setLocation}/>
           <Button onClick={this.getWeather}>Go</Button>
-          {JSON.stringify(this.state, null, 2)}
       </div>
     );
   }
