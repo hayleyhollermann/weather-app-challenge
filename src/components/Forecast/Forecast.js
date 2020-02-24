@@ -17,32 +17,18 @@ class Forecast extends Component {
                     <div className="show-forecast">
                         <h1>{this.props.forecast.location.name}, {this.props.forecast.location.region}</h1>
                         <CurrentWeather current={this.props.forecast.current} />
-                        <table>
-                            <thead>
-                                <th>
-                                    Date
-                                </th>                                
-                                <th>
-                                    Condition
-                                </th>                                
-                                <th>
-                                    High
-                                </th>
-                                <th>
-                                    Low
-                                </th>
-                                <th>
-                                    Precipitation
-                                </th>
-                                <th>
-                                    Humidity
-                                </th>
-                                <th>
-                                    Wind
-                                </th>
-                            </thead>
-                            <ThreeDayForecast threeDays={this.props.forecast.forecast.forecastday} />
-                        </table>
+                        <ul className="forecast-table">
+                            <li className="table-header">
+                                <div className="col col-1">Date</div>                                
+                                <div className="col col-2">Condition</div>                                
+                                <div className="col col-3">High</div>
+                                <div className="col col-4">Low</div>
+                                <div className="col col-5">Precipitation</div>
+                                <div className="col col-6">Humidity</div>
+                                <div className="col col-7">Wind</div>
+                            </li>
+                        </ul>
+                        <ThreeDayForecast threeDays={this.props.forecast.forecast.forecastday} />
                         {JSON.stringify(this.props.forecast.forecast.forecastday, null, 2)}
                     </div>
                     : ''

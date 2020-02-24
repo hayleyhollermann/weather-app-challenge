@@ -9,33 +9,33 @@ class ThreeDayForecast extends Component {
 
     render() {
         return (
-            <tbody className="ThreeDayForecast">
+            <ul className="ThreeDayForecast">
                 {this.props.threeDays.map((forecast) => 
-                    <tr>
-                        <td>
+                    <li className="table-row">
+                        <div className="col col-1">
                             {forecast.date}
-                        </td>
-                        <td>
+                        </div>
+                        <div className="col col-2">
                             <img src={forecast.day.condition.icon} alt={forecast.day.condition.text}/>
-                        </td>
-                        <td>
+                        </div>
+                        <div className="col col-3">
                             {forecast.day.maxtemp_f} Degrees
-                        </td>
-                        <td>
+                        </div>
+                        <div className="col col-4">
                             {forecast.day.mintemp_f} Degrees
-                        </td>
-                        <td>
+                        </div>
+                        <div className="col col-5">
                             {forecast.day.totalprecip_in}in
-                        </td>
-                        <td>
+                        </div>
+                        <div className="col col-6">
                             {forecast.day.avghumidity}%
-                        </td>
-                        <td>
+                        </div>
+                        <div className="col col-7">
                             {forecast.day.maxwind_mph}mph
-                        </td>
-                    </tr>
+                        </div>
+                    </li>
                 )}
-            </tbody>
+            </ul>
         );
     }
 
