@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Input, Button} from '@material-ui/core';
+import { TextField, Button} from '@material-ui/core';
 
 const mapStateToProps = reduxState => ({
   reduxState,
@@ -25,7 +25,7 @@ class SearchBar extends Component {
     return (
       <div className="SearchBar">
           <h1>Find Your City!</h1>
-          <Input onChange={this.setLocation}/>
+          <TextField onChange={this.setLocation} variant="filled" size="small" label="city/zipcode"/>
           <Button onClick={this.getWeather}>Go</Button>
       </div>
     );

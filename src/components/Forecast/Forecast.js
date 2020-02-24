@@ -29,9 +29,12 @@ class Forecast extends Component {
                             </li>
                         </ul>
                         <ThreeDayForecast threeDays={this.props.forecast.forecast.forecastday} />
-                        {JSON.stringify(this.props.forecast.forecast.forecastday, null, 2)}
                     </div>
-                    : ''
+                    : 
+                    <div>
+                        <h3>Search for your city above!</h3>
+                        
+                    </div>
                 }
             </div>
         );

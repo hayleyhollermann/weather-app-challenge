@@ -19,10 +19,10 @@ class ThreeDayForecast extends Component {
                             <img src={forecast.day.condition.icon} alt={forecast.day.condition.text}/>
                         </div>
                         <div className="col col-3">
-                            {forecast.day.maxtemp_f} Degrees
+                            {forecast.day.maxtemp_f}&deg;F
                         </div>
                         <div className="col col-4">
-                            {forecast.day.mintemp_f} Degrees
+                            {forecast.day.mintemp_f}&deg;F
                         </div>
                         <div className="col col-5">
                             {forecast.day.totalprecip_in}in
