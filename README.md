@@ -4,6 +4,8 @@
 
 Welcome to the my weather app! This application is powered by Weather API. At the top, users can input a city name or zipcode. Upon submitting, the forecast for the current day and next 3 days will be displayed below.
 
+## View Deployed:
+https://hayleyhollermann.github.io/weather-app-challenge/
 
 ## Screen Shot
 ![Screen Shot of Finished Product](public/images/weather-app1.png)
