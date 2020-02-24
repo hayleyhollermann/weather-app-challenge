@@ -5,7 +5,7 @@ const axios = require('axios');
 router.get('/:location', (req, res) => {
     console.log('hitting route for:', req.params);
     let key = process.env.WEATHER_API_KEY;
-    let city = 55305;
+    let city = req.params.location;
     axios({
         method: 'GET',
         url: `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city}&days=3`
