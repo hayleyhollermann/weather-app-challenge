@@ -10,7 +10,7 @@ class CurrentWeather extends Component {
     render() {
         return (
             <div className="CurrentWeather">
-                <img src={this.props.current.condition.icon} />
+                <img src={this.props.current.condition.icon} alt={this.props.current.condition.text} />
                 <p>{this.props.current.temp_f} Degrees Fahrenheit</p>
                 <p>Feels Like: {this.props.current.feelslike_f} Degrees Fahrenheit</p>
                 <p>Humidity: {this.props.current.humidity}</p>

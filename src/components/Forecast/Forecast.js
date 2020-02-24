@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CurrentWeather from '../CurrentWeather/CurrentWeather';
+import ThreeDayForecast from '../ThreeDayForecast/ThreeDayForecast';
 
 
 const mapStateToProps = reduxState => ({
@@ -15,20 +16,38 @@ class Forecast extends Component {
                 {this.props.forecast.location ?
                     <div className="show-forecast">
                         <h1>{this.props.forecast.location.name}, {this.props.forecast.location.region}</h1>
-                        <CurrentWeather current={this.props.forecast.current}/>
+                        <CurrentWeather current={this.props.forecast.current} />
                         <table>
-                            <tbody>
-                                
-                            </tbody>
+                            <thead>
+                                <th>
+                                    Date
+                                </th>                                
+                                <th>
+                                    Condition
+                                </th>                                
+                                <th>
+                                    High
+                                </th>
+                                <th>
+                                    Low
+                                </th>
+                                <th>
+                                    Precipitation
+                                </th>
+                                <th>
+                                    Humidity
+                                </th>
+                                <th>
+                                    Wind
+                                </th>
+                            </thead>
+                            <ThreeDayForecast threeDays={this.props.forecast.forecast.forecastday} />
                         </table>
-                        {JSON.stringify(this.props.forecast, null, 2)}
+                        {JSON.stringify(this.props.forecast.forecast.forecastday, null, 2)}
                     </div>
                     : ''
                 }
             </div>
-            // <div>
-            //     {JSON.stringify(this.props.reduxState)}
-            // </div>
         );
     }
 

@@ -8,7 +8,7 @@ router.get('/:location', (req, res) => {
     let city = req.params.location;
     axios({
         method: 'GET',
-        url: `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city}&days=3`
+        url: `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city}&days=4`
     }) .then((response) => {
         console.log(response);
         res.send(response.data)
